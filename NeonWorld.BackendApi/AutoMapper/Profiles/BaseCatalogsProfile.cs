@@ -18,7 +18,7 @@ namespace NeonWorld.BackendApi.AutoMapper.Profiles
                 .ReverseMap();
             CreateMap<Product, ProductCreateVm>().ReverseMap();
             CreateMap<ProductInCategory, ProductInCategoryVm>().ReverseMap();
-            CreateMap<List<ProductInCategory>, List<ProductInCategoryVm>>().ReverseMap();
+            //CreateMap<List<ProductInCategory>, List<ProductInCategoryVm>>().ReverseMap();
         }
     }
 }

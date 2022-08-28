@@ -29,17 +29,17 @@ namespace NeonWorld.Application.Catalog.Products
             productEntity.DateCreated = DateTime.Now;
             _context.Products.Add(productEntity);
 
-            var productInCategoryEntity = _mapper.Map<List<ProductInCategory>>(productCreateVm.Categories);
-            foreach (var category in productInCategoryEntity)
+            if(await _context.SaveChangesAsync() > 0)
             {
-                _context.ProductInCategories.Add(category);
-            }
+                var product = await _context.Products.FirstOrDefaultAsync(p => p.Name.Equals(productCreateVm.Name));
 
-            foreach (var image in productCreateVm.ProductImages)
-            {
-                _context.ProductImages.Add(image);
+                foreach (var image in productCreateVm.ProductImages)
+                {
+                    image.ProductID = product.ProductID;
+                    image.DateCreated = DateTime.Now;
+                    _context.ProductImages.Add(image);
+                }
             }
-
             return await _context.SaveChangesAsync() > 0;
         }
 

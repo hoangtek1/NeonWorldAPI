@@ -56,14 +56,14 @@ namespace NeonWorld.BackendApi.Controllers
                 products = new
                 {
                     last_page = product.TotalPages,
-                    total = product.CurrentPage,
+                    current_page = product.CurrentPage,
                     data = product
                 }
             });
         }
 
         [HttpPost("CreateProduct")]
-        public async Task<IActionResult> CreateProduct([FromForm]ProductCreateVm productCreateVm)
+        public async Task<IActionResult> CreateProduct([FromBody]ProductCreateVm productCreateVm)
         {
             if (await _productService.BrandExist(productCreateVm.BrandID))
             {
@@ -74,14 +74,15 @@ namespace NeonWorld.BackendApi.Controllers
         }
 
         [HttpPost("CreateProductCollection")]
-        public IActionResult CreateProductCollection(
+        public async Task<IActionResult> CreateProductCollection(
             [FromBody]IEnumerable<ProductCreateVm> productCreateCollection)
         {
             foreach (var product in productCreateCollection)
             {
-                _productService.AddProduct(product);
+                if (await _productService.BrandExist(product.BrandID))
+                    await _productService.AddProduct(product);
             }
-            return Ok("Okee");
+            return Ok();
         }
     }
 }

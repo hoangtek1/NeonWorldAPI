@@ -42,7 +42,7 @@ namespace NeonWorld.BackendApi.Controllers
         public async Task<IActionResult> GetUserOrders()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _userService.GetUserAsync(userId);
+            var user = await _userService.GetUserAsync(new Guid(userId));
             if (user != null)
             {
                 var userOrders = _orderService.GetOrder(user.UserID);

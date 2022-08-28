@@ -16,7 +16,6 @@ namespace NeonWorld.ViewModels.Catalog.Products
         public int Stock { get; set; }
         public int Sold { get; set; }
         public int BrandID { get; set; }
-        public List<ProductInCategoryVm> Categories { get; set; }
         public List<ProductImage> ProductImages { get; set; }
     }
 }

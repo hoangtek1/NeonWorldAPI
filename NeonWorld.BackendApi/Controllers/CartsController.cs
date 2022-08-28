@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NeonWorld.BackendApi.Controllers
 {
-    [Route("api/Auth")]
+    [Route("api/Carts")]
     [ApiController]
     [Authorize]
     public class CartsController : Controller
@@ -49,15 +49,15 @@ namespace NeonWorld.BackendApi.Controllers
             return NotFound();
         }
 
-        [HttpPost("Remove")]
-        public async Task<IActionResult> RemoveUserCart(CartUpdateVm cartUpdateVm)
+        [HttpPost("Remove/{id:int}")]
+        public async Task<IActionResult> RemoveUserCart(int id)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var user = await _userService.GetUserAsync(new Guid(userId));
             if (user != null)
             {
                 await _cartService
-                    .RemoveUserCart(user.UserID, cartUpdateVm.Product_id);
+                    .RemoveUserCart(user.UserID, id);
                 return Ok();
             }
             return NotFound();

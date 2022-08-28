@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NeonWorld.BackendApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Brands")]
     [ApiController]
     [Authorize]
     public class BrandsController : ControllerBase
@@ -43,7 +43,7 @@ namespace NeonWorld.BackendApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateBrand([FromForm] BrandVm brandVm)
+        public IActionResult CreateBrand([FromBody] BrandVm brandVm)
         {
             if(brandVm == null)
             {

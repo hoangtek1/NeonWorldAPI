@@ -32,7 +32,7 @@ namespace NeonWorld.Application.System.Users
 
         public ApiResult<bool> ChangePassword(UserChangePassword changePassword)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Email == changePassword.Email);
+            var user = _context.Users.FirstOrDefault(u => u.UserID == changePassword.UserId);
             if (user == null)
             {
                 return new ApiErrorResult<bool>("Invalid User!");

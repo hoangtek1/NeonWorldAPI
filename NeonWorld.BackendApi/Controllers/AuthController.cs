@@ -41,17 +41,20 @@ namespace NeonWorld.BackendApi.Controllers
 
         [AllowAnonymous]
         [HttpPost("Login")]
-        public IActionResult Login(UserLogin userLogin)
+        public IActionResult Login([FromBody]UserLogin userLogin)
         {
             if (userLogin != null)
             {
                 var result = _userService.Login(userLogin);
-                var splitAccessTokenAndExpiresTime = result.ResultObject.Split(":");
-                return Ok(new JwtVm()
+                if (result.IsSuccessed)
                 {
-                    Access_token = splitAccessTokenAndExpiresTime[0],
-                    Expires_in = splitAccessTokenAndExpiresTime[1]
-                });
+                    var splitAccessTokenAndExpiresTime = result.ResultObject.Split(":");
+                    return Ok(new JwtVm()
+                    {
+                        Access_token = splitAccessTokenAndExpiresTime[0],
+                        Expires_in = splitAccessTokenAndExpiresTime[1]
+                    });
+                }
             }
             return BadRequest();
         }
@@ -76,14 +79,16 @@ namespace NeonWorld.BackendApi.Controllers
         }
 
         [HttpPost("Profile/Password")]
-        public IActionResult Profile(UserChangePassword changePassword)
+        public IActionResult ChangPassword(UserChangePassword changePassword)
         {
-            if(changePassword == null)
-            {
-                return BadRequest();
-            }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            changePassword.UserId = new Guid(userId);
             var result = _userService.ChangePassword(changePassword);
-            return Ok(result);
+            if (result.IsSuccessed)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }
