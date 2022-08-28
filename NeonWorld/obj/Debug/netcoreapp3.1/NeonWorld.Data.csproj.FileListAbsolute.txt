@@ -1,0 +1,13 @@
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\bin\Debug\netcoreapp3.1\NeonWorld.Data.deps.json
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\bin\Debug\netcoreapp3.1\NeonWorld.Data.runtimeconfig.json
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\bin\Debug\netcoreapp3.1\NeonWorld.Data.runtimeconfig.dev.json
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\bin\Debug\netcoreapp3.1\NeonWorld.Data.dll
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\bin\Debug\netcoreapp3.1\NeonWorld.Data.pdb
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\obj\Debug\netcoreapp3.1\NeonWorld.Data.csproj.AssemblyReference.cache
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\obj\Debug\netcoreapp3.1\NeonWorld.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\obj\Debug\netcoreapp3.1\NeonWorld.Data.AssemblyInfoInputs.cache
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\obj\Debug\netcoreapp3.1\NeonWorld.Data.AssemblyInfo.cs
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\obj\Debug\netcoreapp3.1\NeonWorld.Data.csproj.CoreCompileInputs.cache
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\obj\Debug\netcoreapp3.1\NeonWorld.Data.dll
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\obj\Debug\netcoreapp3.1\NeonWorld.Data.pdb
+C:\HocTap\ASP.NET\NeonWorld\NeonWorld.Data\NeonWorld\obj\Debug\netcoreapp3.1\NeonWorld.Data.genruntimeconfig.cache
